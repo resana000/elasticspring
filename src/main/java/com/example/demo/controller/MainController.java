@@ -40,4 +40,14 @@ public class MainController {
     public ResponseEntity searchProduct(@PathVariable String word){
         return ResponseEntity.ok(mainService.findRootProduct(word));
     }
+
+    @GetMapping(value = "/search/category/{word}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity searchCategory(@PathVariable String word){
+        return ResponseEntity.ok(mainService.findRootCategory(word));
+    }
+
+    @GetMapping(value = "/category/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity getCategory(@PathVariable String id){
+        return ResponseEntity.ok(mainService.getCategory(id));
+    }
 }

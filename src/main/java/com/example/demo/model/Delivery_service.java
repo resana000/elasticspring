@@ -10,6 +10,8 @@ import java.util.List;
 @Data
 @Document(indexName = "delivery_service")
 public class Delivery_service {
+    @Field(type = FieldType.Object, value = "categories", name = "categories", index = true, store = true)
     private List<Category> categories;
+    @Field(type = FieldType.Object, value = "products", name = "products", index = true, store = true)
     private List<Product> products;
 }

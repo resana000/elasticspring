@@ -17,11 +17,12 @@ import java.util.Date;
 
 @Data
 @XmlRootElement
-@Document(indexName = "dc_catalog")
+@Document(indexName = "dc_catalog", indexStoreType = "dc_catalog")
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class DcCatalog {
     @Id
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:SS")
     private Date last_update;
+    @Field(type = FieldType.Nested, value = "delivery_service", name = "delivery_service", index = true, store = true)
     private Delivery_service delivery_service;
 }
