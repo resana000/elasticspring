@@ -1,5 +1,4 @@
 version: '2.2'
-
 services:
   es01:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.0
@@ -33,8 +32,11 @@ services:
       - elastic
 
   app:
-    image: appel
+    image: appel:latest
     container_name: appel
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 8080:8080
     networks:
